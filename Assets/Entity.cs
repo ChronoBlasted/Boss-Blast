@@ -9,11 +9,18 @@ public class Entity : MonoBehaviour
     public float HealthPerSecond = .1f;
     public ParticleSystem HitFX;
 
+    GameObject _floatingTextGO;
+
     public virtual bool TakeDamage(float damageTaken)
     {
         Health -= damageTaken;
 
         HitFX.Play();
+
+        _floatingTextGO = PoolManager.Instance.gameobjectPoolDictionary["FloatingText"].Get();
+        _floatingTextGO.transform.SetParent(transform);
+        var _floatingText = _floatingTextGO.GetComponent<FloatingText>();
+        _floatingText.InitSmall(damageTaken);
 
         if (Health <= 0)
         {

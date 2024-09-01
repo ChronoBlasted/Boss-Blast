@@ -1,18 +1,16 @@
+using BaseTemplate.Behaviours;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoSingleton<UIManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Canvas mainCanvas;
 
-    // Update is called once per frame
-    void Update()
+    public Canvas MainCanvas { get => mainCanvas; }
+
+    public void Init()
     {
-        
     }
 }

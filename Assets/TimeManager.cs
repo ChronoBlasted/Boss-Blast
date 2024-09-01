@@ -10,6 +10,11 @@ public class TimeManager : MonoSingleton<TimeManager>
 
     Coroutine _lagCoroutine;
 
+    public void Init()
+    {
+        SetTime(1);
+    }
+
     public void DoLagTime(float intensity = .2f, float timeBeforeLerp = .1f)
     {
         if (_lagCoroutine != null)
