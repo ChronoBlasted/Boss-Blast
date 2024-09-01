@@ -23,8 +23,8 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 0d123a2728c5fd349a41ba30a6a5b5cf, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_SpeedParameter: isSwordAttackMirror
+  m_MirrorParameter: isSwordAttackMirror
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1107 &-5015852106587230818
@@ -38,7 +38,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7229406161027359105}
-    m_Position: {x: 260, y: 30, z: 0}
+    m_Position: {x: 260, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8065705354253728754}
     m_Position: {x: 260, y: 120, z: 0}
@@ -97,9 +97,9 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.2
   m_TransitionOffset: 0
-  m_ExitTime: 1
+  m_ExitTime: 0.8
   m_HasExitTime: 1
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -120,9 +120,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.2
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -150,7 +150,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 63faa44a9e79d6e4da57efc838f918d5, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: isSwordAttackMirror
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

@@ -7,10 +7,13 @@ public class Entity : MonoBehaviour
     public float Health = 100f;
     public float MaxHealth = 100f;
     public float HealthPerSecond = .1f;
+    public ParticleSystem HitFX;
 
     public virtual bool TakeDamage(float damageTaken)
     {
         Health -= damageTaken;
+
+        HitFX.Play();
 
         if (Health <= 0)
         {

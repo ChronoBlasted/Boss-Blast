@@ -7,6 +7,13 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] InputActionReference attack;
 
+    PlayerAnimator animator;
+
+    private void Awake()
+    {
+        animator = PlayerManager.Instance.PlayerAnimator;
+    }
+
     private void OnEnable()
     {
         attack.action.performed += Attack;
@@ -17,7 +24,8 @@ public class PlayerAttack : MonoBehaviour
         attack.action.performed -= Attack;
     }
 
-    private void Attack(InputAction.CallbackContext obj)
+    void Attack(InputAction.CallbackContext obj)
     {
+        animator.SetTrigger("SwordAttack");
     }
 }
