@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,5 +28,14 @@ public class PlayerAttack : MonoBehaviour
     void Attack(InputAction.CallbackContext obj)
     {
         animator.SetTrigger("SwordAttack");
+    }
+
+    public void Attack(Entity entity)
+    {
+        entity.TakeDamage(10);
+
+        entity.transform.DOMove(entity.transform.position + (entity.transform.position - PlayerManager.Instance.transform.position), .5f).SetUpdate(UpdateType.Fixed);
+
+        CameraManager.Instance.ShakeCamera(2, .075f);
     }
 }

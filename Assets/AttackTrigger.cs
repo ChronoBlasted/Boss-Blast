@@ -11,11 +11,7 @@ public class AttackTrigger : MonoBehaviour
         {
             var target = collision.gameObject.GetComponent<Entity>();
 
-            target.TakeDamage(10);
-
-            target.transform.DOMove(target.transform.position + (target.transform.position - PlayerManager.Instance.transform.position), .5f).SetUpdate(UpdateType.Fixed);
-
-            CameraManager.Instance.ShakeCamera(2, .075f);
+            PlayerManager.Instance.PlayerAttack.Attack(target);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
