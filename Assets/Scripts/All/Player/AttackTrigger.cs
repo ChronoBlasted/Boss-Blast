@@ -4,6 +4,7 @@ using UnityEngine;
 public class AttackTrigger : MonoBehaviour
 {
     [SerializeField] int layerToAttack = 20;
+    [SerializeField] AttackSystem attackSystem;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,7 +12,7 @@ public class AttackTrigger : MonoBehaviour
         {
             var target = collision.gameObject.GetComponent<Entity>();
 
-            PlayerManager.Instance.PlayerAttack.Attack(target);
+            attackSystem.Attack(target);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

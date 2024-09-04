@@ -500,9 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8246fef069519f4eb9b6a56e1ad1258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
-  MaxHealth: 100
-  HealthPerSecond: 0.1
+  Data: {fileID: 11400000, guid: 0e767f5f38e76af478f3cf037f31b35f, type: 2}
   HitFX: {fileID: 1136212904318313719}
 --- !u!58 &526542359
 CircleCollider2D:
@@ -4909,6 +4907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63bfa79cc8a1834f81fc2c07aab5551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 11400000, guid: 9b1cbde7618ba6e439501a130fffdf30, type: 2}
   attack: {fileID: -1142102552554764943, guid: a2ce4a0db5d27844a9cbfcf2b41b2e97, type: 3}
 --- !u!95 &1676670833
 Animator:
@@ -4991,9 +4990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0958ab31139cd0d4fb36e4eed42c9bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
-  MaxHealth: 100
-  HealthPerSecond: 0.1
+  Data: {fileID: 11400000, guid: eae80b7a7e7cabd4b84695185248aaa8, type: 2}
   HitFX: {fileID: 0}
 --- !u!1 &1700774804
 GameObject:
@@ -8037,6 +8034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerToAttack: 20
+  attackSystem: {fileID: 1676670832}
 --- !u!1 &2073121320
 GameObject:
   m_ObjectHideFlags: 0

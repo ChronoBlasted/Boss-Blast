@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public float Health = 100f;
-    public float MaxHealth = 100f;
-    public float HealthPerSecond = .1f;
+    public EntityData Data;
+
     public ParticleSystem HitFX;
 
     GameObject _floatingTextGO;
 
     public virtual bool TakeDamage(float damageTaken)
     {
-        Health -= damageTaken;
+        Data.Health -= damageTaken;
 
         HitFX.Play();
 
@@ -22,9 +21,9 @@ public class Entity : MonoBehaviour
         var _floatingText = _floatingTextGO.GetComponent<FloatingText>();
         _floatingText.InitSmall(damageTaken);
 
-        if (Health <= 0)
+        if (Data.Health <= 0)
         {
-            Health = 0;
+            Data.Health = 0;
             Die();
             return true;
         }

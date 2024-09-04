@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : AttackSystem
 {
     [SerializeField] InputActionReference attack;
 
@@ -30,11 +30,11 @@ public class PlayerAttack : MonoBehaviour
         animator.SetTrigger("SwordAttack");
     }
 
-    public void Attack(Entity entity)
+    public override void Attack(Entity entityDefender)
     {
-        entity.TakeDamage(10);
+        base.Attack(entityDefender);
 
-        if (entity.tag != "Dummy") entity.transform.DOMove(entity.transform.position + (entity.transform.position - PlayerManager.Instance.transform.position), .5f).SetUpdate(UpdateType.Fixed);
+        TimeManager.Instance.DoLagTime();
 
         CameraManager.Instance.ShakeCamera(2, .075f);
     }

@@ -11,9 +11,6 @@ public class Dummy : Entity
 
     public override bool TakeDamage(float damageTaken)
     {
-        Debug.Log("Dummy take's : " + damageTaken + " damaged !");
-
-        TimeManager.Instance.DoLagTime();
         return base.TakeDamage(damageTaken);
     }
 }
