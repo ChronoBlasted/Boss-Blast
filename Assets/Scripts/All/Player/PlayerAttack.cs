@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
     {
         entity.TakeDamage(10);
 
-        entity.transform.DOMove(entity.transform.position + (entity.transform.position - PlayerManager.Instance.transform.position), .5f).SetUpdate(UpdateType.Fixed);
+        if (entity.tag != "Dummy") entity.transform.DOMove(entity.transform.position + (entity.transform.position - PlayerManager.Instance.transform.position), .5f).SetUpdate(UpdateType.Fixed);
 
         CameraManager.Instance.ShakeCamera(2, .075f);
     }
