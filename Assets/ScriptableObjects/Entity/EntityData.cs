@@ -9,4 +9,5 @@ public class EntityData : ScriptableObject
     public float MaxHealth = 100f;
     public float HealthPerSecond = .1f;
     public float KnockbackMultiplier = 1f;
+    public float InvicibilityTimeStamp = .5f;
 }

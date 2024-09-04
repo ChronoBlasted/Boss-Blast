@@ -6,12 +6,15 @@ public class Entity : MonoBehaviour
 {
     public EntityData Data;
 
+    public Collider2D HitCollider;
     public ParticleSystem HitFX;
 
     GameObject _floatingTextGO;
 
     public virtual bool TakeDamage(float damageTaken)
     {
+        StartCoroutine(InvicibilityCoroutine());
+
         Data.Health -= damageTaken;
 
         HitFX.Play();
@@ -36,5 +39,12 @@ public class Entity : MonoBehaviour
     public virtual void Die()
     {
 
+    }
+
+    IEnumerator InvicibilityCoroutine()
+    {
+        HitCollider.enabled = false;
+        yield return new WaitForSeconds(Data.InvicibilityTimeStamp);
+        HitCollider.enabled = true;
     }
 }

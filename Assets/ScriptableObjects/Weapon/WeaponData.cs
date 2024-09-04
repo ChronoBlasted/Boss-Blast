@@ -7,10 +7,11 @@ public class WeaponData : ScriptableObject
 {
     public int id = 0;
     public WeaponType Type = WeaponType.NONE;
+    public Sprite Sprite;
 
     public float Damage = 10f;
     public float FireRate = 1f;
-    public float Range = 2f;
+    public Vector2 Range = new Vector2(.5f, 2f);
     public float Knockback = 1f;
 }
 

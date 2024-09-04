@@ -17,15 +17,15 @@ public class PlayerAttack : AttackSystem
 
     private void OnEnable()
     {
-        attack.action.performed += Attack;
+        attack.action.performed += AttackInput;
     }
 
     private void OnDisable()
     {
-        attack.action.performed -= Attack;
+        attack.action.performed -= AttackInput;
     }
 
-    void Attack(InputAction.CallbackContext obj)
+    void AttackInput(InputAction.CallbackContext obj)
     {
         animator.SetTrigger("SwordAttack");
     }

@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 0e767f5f38e76af478f3cf037f31b35f, type: 2}
+  HitCollider: {fileID: 526542359}
   HitFX: {fileID: 1136212904318313719}
 --- !u!58 &526542359
 CircleCollider2D:
@@ -4908,6 +4909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 11400000, guid: 9b1cbde7618ba6e439501a130fffdf30, type: 2}
+  attackTrigger: {fileID: 2032543915}
+  weaponRenderer: {fileID: 2032543914}
   attack: {fileID: -1142102552554764943, guid: a2ce4a0db5d27844a9cbfcf2b41b2e97, type: 3}
 --- !u!95 &1676670833
 Animator:
@@ -4991,6 +4994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: eae80b7a7e7cabd4b84695185248aaa8, type: 2}
+  HitCollider: {fileID: 1676670835}
   HitFX: {fileID: 0}
 --- !u!1 &1700774804
 GameObject:
@@ -5038,7 +5042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grey: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
   Red: {r: 0.9921569, g: 0.3647059, b: 0.39607847, a: 1}
-  Blue: {r: 0, g: 0, b: 0, a: 0}
+  Green: {r: 0.21568629, g: 0.85098046, b: 0.54901963, a: 1}
   Purple: {r: 0.5686275, g: 0.47450984, b: 1, a: 1}
   Yellow: {r: 1, g: 0.7647059, b: 0, a: 1}
 --- !u!1 &1885794510
@@ -8008,7 +8012,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.2}
@@ -8019,7 +8023,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.5}
+  m_Size: {x: 0.5, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &2032543916
 MonoBehaviour:

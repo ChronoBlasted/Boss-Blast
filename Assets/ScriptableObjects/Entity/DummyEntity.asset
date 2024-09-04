@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ebc9c45b5c6a24ab9c8b8c16fabf48, type: 3}
   m_Name: DummyEntity
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 0
   MaxHealth: 100
   HealthPerSecond: 0.1
   KnockbackMultiplier: 0
+  InvicibilityTimeStamp: 0.2
