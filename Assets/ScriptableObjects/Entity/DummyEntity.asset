@@ -16,4 +16,4 @@ MonoBehaviour:
   MaxHealth: 100
   HealthPerSecond: 0.1
   KnockbackMultiplier: 0
-  InvicibilityTimeStamp: 0.2
+  InvicibilityTimeStamp: 0.1

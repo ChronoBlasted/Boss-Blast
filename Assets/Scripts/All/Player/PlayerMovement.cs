@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Speed values")]
-    [SerializeField] float playerSpeed = 1f;
-    [SerializeField] float dashSpeed = 5f;
+    [SerializeField] float playerSpeed = 5f;
+    [SerializeField] float dashSpeed = 20f;
 
     [Header("Ref")]
     [SerializeField] Camera cam;

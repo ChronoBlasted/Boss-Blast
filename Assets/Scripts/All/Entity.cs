@@ -5,17 +5,26 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public EntityData Data;
-
-    public Collider2D HitCollider;
     public ParticleSystem HitFX;
 
     GameObject _floatingTextGO;
 
+    bool canTakeDamage = true;
+    float health;
+
+
+    private void Awake()
+    {
+        health = Data.MaxHealth;
+    }
+
     public virtual bool TakeDamage(float damageTaken)
     {
+        if (canTakeDamage == false) return false;
+
         StartCoroutine(InvicibilityCoroutine());
 
-        Data.Health -= damageTaken;
+        health -= damageTaken;
 
         HitFX.Play();
 
@@ -24,11 +33,16 @@ public class Entity : MonoBehaviour
         var _floatingText = _floatingTextGO.GetComponent<FloatingText>();
         _floatingText.InitSmall(damageTaken);
 
-        if (Data.Health <= 0)
+        if (health <= 0)
         {
-            Data.Health = 0;
+            health = 0;
             Die();
             return true;
+        }
+        else if (health >= Data.MaxHealth)
+        {
+            health = Data.MaxHealth;
+            return false;
         }
         else
         {
@@ -43,8 +57,8 @@ public class Entity : MonoBehaviour
 
     IEnumerator InvicibilityCoroutine()
     {
-        HitCollider.enabled = false;
+        canTakeDamage = false;
         yield return new WaitForSeconds(Data.InvicibilityTimeStamp);
-        HitCollider.enabled = true;
+        canTakeDamage = true;
     }
 }

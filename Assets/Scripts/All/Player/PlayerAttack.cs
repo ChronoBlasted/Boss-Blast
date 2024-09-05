@@ -27,6 +27,11 @@ public class PlayerAttack : AttackSystem
 
     void AttackInput(InputAction.CallbackContext obj)
     {
+        if (!canAttack) return;
+        canAttack = false;
+
+        attackTrigger.Enemies.Clear();
+
         animator.SetTrigger("SwordAttack");
     }
 

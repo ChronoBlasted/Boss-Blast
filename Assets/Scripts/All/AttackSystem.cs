@@ -6,8 +6,11 @@ using UnityEngine;
 public class AttackSystem : MonoBehaviour
 {
     [SerializeField] WeaponData currentWeapon;
-    [SerializeField] BoxCollider2D attackTrigger;
     [SerializeField] SpriteRenderer weaponRenderer;
+    [SerializeField] protected AttackTrigger attackTrigger;
+
+    protected bool canAttack = false;
+    float lastAttack;
 
     public virtual void Attack(Entity entityDefender)
     {
@@ -24,9 +27,18 @@ public class AttackSystem : MonoBehaviour
 
         currentWeapon = newWeapon;
 
-        attackTrigger.size = attackTrigger.size;
-        attackTrigger.offset = new Vector2(0f, attackTrigger.size.y / 2f);
+        attackTrigger.AttackTriggerCollider.size = attackTrigger.AttackTriggerCollider.size;
+        attackTrigger.AttackTriggerCollider.offset = new Vector2(0f, attackTrigger.AttackTriggerCollider.size.y / 2f);
 
         weaponRenderer.sprite = currentWeapon.Sprite;
+    }
+
+    private void Update()
+    {
+        if (Time.time > currentWeapon.FireRate + lastAttack)
+        {
+            lastAttack = Time.time;
+            canAttack = true;
+        }
     }
 }

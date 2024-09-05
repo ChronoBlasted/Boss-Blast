@@ -501,7 +501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 0e767f5f38e76af478f3cf037f31b35f, type: 2}
-  HitCollider: {fileID: 526542359}
   HitFX: {fileID: 1136212904318313719}
 --- !u!58 &526542359
 CircleCollider2D:
@@ -4909,8 +4908,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 11400000, guid: 9b1cbde7618ba6e439501a130fffdf30, type: 2}
-  attackTrigger: {fileID: 2032543915}
   weaponRenderer: {fileID: 2032543914}
+  attackTrigger: {fileID: 2032543916}
   attack: {fileID: -1142102552554764943, guid: a2ce4a0db5d27844a9cbfcf2b41b2e97, type: 3}
 --- !u!95 &1676670833
 Animator:
@@ -4994,7 +4993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: eae80b7a7e7cabd4b84695185248aaa8, type: 2}
-  HitCollider: {fileID: 1676670835}
   HitFX: {fileID: 0}
 --- !u!1 &1700774804
 GameObject:
@@ -7995,7 +7993,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -8039,6 +8037,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerToAttack: 20
   attackSystem: {fileID: 1676670832}
+  attackTriggerCollider: {fileID: 2032543915}
+  enemies: []
 --- !u!1 &2073121320
 GameObject:
   m_ObjectHideFlags: 0
