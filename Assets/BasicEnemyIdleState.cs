@@ -6,6 +6,7 @@ public class BasicEnemyIdleState : State<BasicEnemy>
 {
     public override void Enter()
     {
+        _owner.PlayAnimation(BasicEnemy.BasicEnemyAnimationName.Idle);
     }
 
     public override void Exit()

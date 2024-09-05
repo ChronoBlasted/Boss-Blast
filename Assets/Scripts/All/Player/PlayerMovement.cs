@@ -4,11 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Speed values")]
-    [SerializeField] float playerSpeed = 5f;
-    [SerializeField] float dashSpeed = 20f;
-
-    [Header("Ref")]
+    [SerializeField] EntityData Data;
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] InputActionReference movement, dash, mousePos;
@@ -28,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDashing)
         {
-            rb.velocity = new Vector2(movementInput.x * playerSpeed, movementInput.y * playerSpeed);
+            rb.velocity = new Vector2(movementInput.x * Data.Speed, movementInput.y * Data.Speed);
         }
     }
 
@@ -46,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         isDashing = true;
 
-        rb.velocity = new Vector2(movementInput.x * dashSpeed, movementInput.y * dashSpeed);
+        rb.velocity = new Vector2(movementInput.x * Data.DashSpeed, movementInput.y * Data.DashSpeed);
 
         await Task.Delay(100);
 
