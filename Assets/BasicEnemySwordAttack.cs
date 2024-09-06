@@ -32,6 +32,11 @@ public class BasicEnemySwordAttack : State<BasicEnemy>
 
     void Attack()
     {
+        if (_owner.attackSystem.CanAttack == false) return;
+        _owner.attackSystem.CanAttack = false;
+
+        _owner.attackSystem.attackTrigger.Enemies.Clear();
+
         _owner.PlayAnimation(BasicEnemy.BasicEnemyAnimationName.SwordAttack);
         attackTimer = 0f;
     }

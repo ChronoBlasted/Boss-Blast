@@ -16,6 +16,7 @@ public class BasicEnemy : Entity
     FiniteStateMachine<BasicEnemy> _stateMachine;
 
     public Entity entityToChase;
+    public AttackSystem attackSystem;
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;

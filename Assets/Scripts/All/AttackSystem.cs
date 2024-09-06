@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
 {
+    public AttackTrigger attackTrigger;
+    public bool CanAttack = true;
+
     [SerializeField] WeaponData currentWeapon;
     [SerializeField] SpriteRenderer weaponRenderer;
-    [SerializeField] protected AttackTrigger attackTrigger;
 
-    protected bool canAttack = true;
     float lastAttack;
+
 
     public virtual void Attack(Entity entityDefender)
     {
@@ -39,7 +41,7 @@ public class AttackSystem : MonoBehaviour
         if (Time.time > currentWeapon.FireRate + lastAttack)
         {
             lastAttack = Time.time;
-            canAttack = true;
+            CanAttack = true;
         }
     }
 }

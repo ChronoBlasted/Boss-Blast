@@ -19,6 +19,8 @@ public class AttackTrigger : MonoBehaviour
         {
             var target = collision.gameObject.GetComponent<Entity>();
 
+            if (target == null) return;
+
             if (enemies.Contains(target) == false)
             {
                 enemies.Add(target);
@@ -26,9 +28,5 @@ public class AttackTrigger : MonoBehaviour
                 attackSystem.Attack(target);
             }
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
     }
 }

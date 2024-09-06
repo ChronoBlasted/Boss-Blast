@@ -27,8 +27,8 @@ public class PlayerAttack : AttackSystem
 
     void AttackInput(InputAction.CallbackContext obj)
     {
-        if (!canAttack) return;
-        canAttack = false;
+        if (!CanAttack) return;
+        CanAttack = false;
 
         attackTrigger.Enemies.Clear();
 
