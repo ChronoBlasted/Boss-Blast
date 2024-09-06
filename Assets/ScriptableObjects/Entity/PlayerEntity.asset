@@ -16,5 +16,5 @@ MonoBehaviour:
   HealthPerSecond: 0.1
   KnockbackMultiplier: 1
   InvicibilityTimeStamp: 0.5
-  Speed: 0
-  DashSpeed: 0
+  Speed: 5
+  DashSpeed: 20

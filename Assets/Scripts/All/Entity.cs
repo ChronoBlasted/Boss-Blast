@@ -29,7 +29,7 @@ public class Entity : MonoBehaviour
         HitFX.Play();
 
         _floatingTextGO = PoolManager.Instance.gameobjectPoolDictionary["FloatingText"].Get();
-        _floatingTextGO.transform.SetParent(transform);
+        _floatingTextGO.transform.position = transform.position;
         var _floatingText = _floatingTextGO.GetComponent<FloatingText>();
         _floatingText.InitSmall(damageTaken);
 

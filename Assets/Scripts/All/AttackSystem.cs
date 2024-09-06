@@ -9,16 +9,17 @@ public class AttackSystem : MonoBehaviour
     [SerializeField] SpriteRenderer weaponRenderer;
     [SerializeField] protected AttackTrigger attackTrigger;
 
-    protected bool canAttack = false;
+    protected bool canAttack = true;
     float lastAttack;
 
     public virtual void Attack(Entity entityDefender)
     {
         entityDefender.TakeDamage(currentWeapon.Damage);
 
-        Vector2 forceKnockback = (entityDefender.transform.position + (entityDefender.transform.position - transform.position)) * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier;
+        Vector2 directionKnockback = entityDefender.transform.position - transform.position;
+        Vector2 forceKnockback = directionKnockback.normalized * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier;
 
-        if (forceKnockback != Vector2.zero) entityDefender.transform.DOMove(forceKnockback, .5f);
+        if (forceKnockback != Vector2.zero) entityDefender.transform.DOMove((Vector2)entityDefender.transform.position + forceKnockback, .2f);
     }
 
     public virtual void EquipWeapon(WeaponData newWeapon)

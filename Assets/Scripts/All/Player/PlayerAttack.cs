@@ -39,7 +39,7 @@ public class PlayerAttack : AttackSystem
     {
         base.Attack(entityDefender);
 
-        TimeManager.Instance.DoLagTime();
+        TimeManager.Instance.DoLagTime(.2f, .05f);
 
         CameraManager.Instance.ShakeCamera(2, .075f);
     }

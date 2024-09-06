@@ -13,6 +13,8 @@ public class FiniteStateMachine<T>
         _states = new Dictionary<System.Type, State<T>>();
     }
 
+    public State<T> CurrentState { get => _currentState; set => _currentState = value; }
+
     public void AddState(State<T> state)
     {
         state.SetState(this, _owner);
@@ -22,10 +24,15 @@ public class FiniteStateMachine<T>
     public void SetState<TS>() where TS : State<T>
     {
         if (_currentState != null)
+        {
+            Debug.Log("EXIT : " + _currentState.GetType());
             _currentState.Exit();
+        }
+
         if (_states.ContainsKey(typeof(TS)))
         {
             _currentState = _states[typeof(TS)];
+            Debug.Log("ENTER : " + _currentState.GetType());
             _currentState.Enter();
         }
     }
