@@ -21,7 +21,7 @@ public class AttackSystem : MonoBehaviour
         Vector2 directionKnockback = entityDefender.transform.position - transform.position;
         Vector2 forceKnockback = directionKnockback.normalized * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier;
 
-        if (forceKnockback != Vector2.zero) entityDefender.transform.DOMove((Vector2)entityDefender.transform.position + forceKnockback, .2f);
+        if (forceKnockback != Vector2.zero) entityDefender.rb.DOMove((Vector2)entityDefender.transform.position + forceKnockback, .2f);
     }
 
     public virtual void EquipWeapon(WeaponData newWeapon)

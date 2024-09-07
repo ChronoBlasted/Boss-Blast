@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ebc9c45b5c6a24ab9c8b8c16fabf48, type: 3}
   m_Name: BarbarEntity
   m_EditorClassIdentifier: 
+  ColorEntity: {r: 1, g: 0.7647059, b: 0, a: 1}
   MaxHealth: 500
   HealthPerSecond: 0.2
   KnockbackMultiplier: 0.5

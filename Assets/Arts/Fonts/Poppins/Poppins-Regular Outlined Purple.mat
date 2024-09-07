@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Poppins-Regular Outlined Grey
+  m_Name: Poppins-Regular Outlined Purple
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: -7694999239601614518, guid: 808763372e7a1564caa9a3a7abf4db46, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -38,5 +38,5 @@ Material:
     - _UnderlayOffsetY: -0.5
     - _UnderlaySoftness: 0
     m_Colors:
-    - _UnderlayColor: {r: 0.019382361, g: 0.019382361, b: 0.019382361, a: 1}
+    - _UnderlayColor: {r: 0.2831488, g: 0.19120172, b: 0.9911022, a: 1}
   m_BuildTextureStacks: []

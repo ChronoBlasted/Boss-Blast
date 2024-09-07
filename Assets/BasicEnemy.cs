@@ -13,13 +13,13 @@ public class BasicEnemy : Entity
         SwordAttack
     }
 
-    FiniteStateMachine<BasicEnemy> _stateMachine;
-
     public Entity entityToChase;
     public AttackSystem attackSystem;
 
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
+
+    FiniteStateMachine<BasicEnemy> _stateMachine;
+    //int _phase = 0;
 
     private void Start()
     {
@@ -35,6 +35,13 @@ public class BasicEnemy : Entity
     private void Update()
     {
         _stateMachine.Update();
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        Destroy(gameObject);
     }
 
     public void PlayAnimation(BasicEnemyAnimationName animationName)

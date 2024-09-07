@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ebc9c45b5c6a24ab9c8b8c16fabf48, type: 3}
   m_Name: DummyEntity
   m_EditorClassIdentifier: 
+  ColorEntity: {r: 0.9921569, g: 0.3647059, b: 0.39607847, a: 1}
   MaxHealth: 100
   HealthPerSecond: 0.1
   KnockbackMultiplier: 0

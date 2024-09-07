@@ -24,6 +24,12 @@ public class BasicEnemyWalkState : State<BasicEnemy>
     {
         _owner.transform.up = _owner.entityToChase.transform.position - _owner.transform.position;
 
+        if (_owner.transform.up == Vector3.down)
+        {
+            var newRotation = Quaternion.Euler(0f, 0f, 180f);
+            _owner.transform.rotation = newRotation;
+        }
+
         float distanceToPlayer = Vector2.Distance(_owner.transform.position, _owner.entityToChase.transform.position);
 
         if (distanceToPlayer <= distanceToAttack)

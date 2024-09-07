@@ -34,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
         directionToLookAt.z = 0f;
 
         transform.up = directionToLookAt - transform.position;
+        if (transform.up == Vector3.down)
+        {
+            var newRotation = Quaternion.Euler(0f, 0f, 180f);
+            transform.rotation = newRotation;
+        }
     }
 
     async void Dash(InputAction.CallbackContext context)

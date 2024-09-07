@@ -9,14 +9,12 @@ public class FloatingText : MonoBehaviour
     public TMP_Text Text;
     Sequence _tween;
 
-    public void InitSmall(float amount, bool isCrit = false)
+    public void InitSmall(float amount, Color color, bool isCrit = false)
     {
         Text.alpha = 1;
         Text.transform.localScale = Vector3.one;
         Text.text = amount.ToString();
-
-        if (isCrit) Text.color = ColorManager.Instance.Yellow;
-        else Text.color = ColorManager.Instance.Grey;
+        Text.color = color;
 
         if (_tween.IsActive()) _tween.Kill();
 
