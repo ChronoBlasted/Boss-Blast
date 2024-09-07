@@ -7,11 +7,32 @@ public class EntityData : ScriptableObject
 {
     public Color ColorEntity;
 
-    public float MaxHealth = 100f;
-    public float HealthPerSecond = .1f;
-    public float KnockbackMultiplier = 1f;
-    public float InvicibilityTimeStamp = .5f;
+    public List<float> MaxHealth = new List<float>
+    {
+        100,
+    };
+    public List<float> HealthPerSecond = new List<float>
+    {
+        .1f,
+    };
 
-    public float Speed = 5f;
-    public float DashSpeed = 20f;
+    public List<float> KnockbackMultiplier = new List<float>
+    {
+        1f,
+    };
+
+    public List<float> InvicibilityTimeStamp = new List<float>
+    {
+        .5f,
+    };
+
+    public List<float> Speed = new List<float>
+    {
+        5f,
+    };
+
+    public List<float> DashSpeed = new List<float>
+    {
+        20f,
+    };
 }

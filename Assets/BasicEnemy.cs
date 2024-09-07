@@ -19,7 +19,6 @@ public class BasicEnemy : Entity
 
     public Entity entityToChase;
     public AttackSystem attackSystem;
-    public int Phase = 0;
 
     [SerializeField] Animator animator;
 

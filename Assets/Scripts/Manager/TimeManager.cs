@@ -23,6 +23,8 @@ public class TimeManager : MonoSingleton<TimeManager>
             _lagCoroutine = null;
         }
 
+        Debug.Log(timeBeforeLerp);
+
         _lagCoroutine = StartCoroutine(LagCoroutine(intensity, timeBeforeLerp));
     }
 
@@ -35,7 +37,7 @@ public class TimeManager : MonoSingleton<TimeManager>
         SetTime(1);
     }
 
-    public void SetTime(float intensity = .2f)
+    void SetTime(float intensity = .2f)
     {
         Time.timeScale = intensity;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;

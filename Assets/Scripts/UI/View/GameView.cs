@@ -17,8 +17,8 @@ public class GameView : View
     {
         base.OpenView(_instant, timeToOpen);
 
-        bossHealth.Init(FightManager.Instance.BossEntity.Data.MaxHealth);
-        playerHealth.Init(PlayerManager.Instance.PlayerEntity.Data.MaxHealth);
+        bossHealth.Init(FightManager.Instance.BossEntity.Data.MaxHealth[0]);
+        playerHealth.Init(PlayerManager.Instance.PlayerEntity.Data.MaxHealth[0]);
 
         FightManager.Instance.BossEntity.OnTakeDamage += UpdateBossHealth;
         PlayerManager.Instance.PlayerEntity.OnTakeDamage += UpdatePlayerHealth; // A adapter avec un OnStartFight Dans le fight manager
@@ -33,6 +33,11 @@ public class GameView : View
     {
         phaseTxt.text = "PHASE " + newPhase;
         phaseFadeTxt.text = "PHASE " + newPhase;
+    }
+
+    public void SetNewMaxHealth(float newMaxHealth)
+    {
+        bossHealth.SetMaxValue(newMaxHealth);
     }
 
     public void UpdateBossHealth(float newHealth, float duration = .2f)

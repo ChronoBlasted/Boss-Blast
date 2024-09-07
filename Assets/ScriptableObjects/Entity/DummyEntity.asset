@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: DummyEntity
   m_EditorClassIdentifier: 
   ColorEntity: {r: 0.9921569, g: 0.3647059, b: 0.39607847, a: 1}
-  MaxHealth: 100
-  HealthPerSecond: 0.1
-  KnockbackMultiplier: 0
-  InvicibilityTimeStamp: 0.1
-  Speed: 0
-  DashSpeed: 0
+  MaxHealth:
+  - 1000
+  HealthPerSecond:
+  - 1000
+  KnockbackMultiplier:
+  - 0
+  InvicibilityTimeStamp:
+  - 0
+  Speed:
+  - 0
+  DashSpeed:
+  - 0

@@ -13,9 +13,39 @@ MonoBehaviour:
   m_Name: BarbarEntity
   m_EditorClassIdentifier: 
   ColorEntity: {r: 1, g: 0.7647059, b: 0, a: 1}
-  MaxHealth: 50
-  HealthPerSecond: 0.2
-  KnockbackMultiplier: 0.5
-  InvicibilityTimeStamp: 0.1
-  Speed: 2
-  DashSpeed: 10
+  MaxHealth:
+  - 100
+  - 200
+  - 300
+  - 400
+  - 500
+  HealthPerSecond:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  KnockbackMultiplier:
+  - 0.5
+  - 0.4
+  - 0.3
+  - 0.2
+  - 0.2
+  InvicibilityTimeStamp:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  Speed:
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  DashSpeed:
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20

@@ -28,6 +28,7 @@ public class PlayerAttack : AttackSystem
     void AttackInput(InputAction.CallbackContext obj)
     {
         if (!CanAttack) return;
+
         CanAttack = false;
 
         attackTrigger.Enemies.Clear();
@@ -37,10 +38,13 @@ public class PlayerAttack : AttackSystem
 
     public override void Attack(Entity entityDefender)
     {
-        base.Attack(entityDefender);
+        if (entityDefender.CanTakeDamage)
+        {
+            TimeManager.Instance.DoLagTime(.2f, .05f);
 
-        TimeManager.Instance.DoLagTime(.2f, .05f);
+            CameraManager.Instance.ShakeCamera(2, .075f);
 
-        CameraManager.Instance.ShakeCamera(2, .075f);
+            base.Attack(entityDefender);
+        }
     }
 }

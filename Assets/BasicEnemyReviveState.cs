@@ -14,10 +14,12 @@ public class BasicEnemyReviveState : State<BasicEnemy>
         timeBeforeNextState = _owner.GetAnimDuration(animationName);
 
         _owner.PlayAnimation(animationName);
-        _owner.SetHealth(_owner.Data.MaxHealth);
+
         _owner.Phase++;
 
-        UIManager.Instance.GameView.UpdateBossHealth(_owner.Data.MaxHealth, timeBeforeNextState);
+        _owner.SetHealth(_owner.Data.MaxHealth[_owner.Phase]);
+        UIManager.Instance.GameView.SetNewMaxHealth(_owner.Data.MaxHealth[_owner.Phase]);
+        UIManager.Instance.GameView.UpdateBossHealth(_owner.Data.MaxHealth[_owner.Phase], timeBeforeNextState);
         UIManager.Instance.GameView.UpdatePhase(_owner.Phase);
 
         timer = 0f;

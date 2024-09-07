@@ -9,6 +9,8 @@ public class Entity : MonoBehaviour
     public ParticleSystem HitFX;
     public Rigidbody2D rb;
 
+    public int Phase = 0;
+
     GameObject _floatingTextGO;
 
     bool canTakeDamage = true;
@@ -22,7 +24,7 @@ public class Entity : MonoBehaviour
 
     private void Awake()
     {
-        SetHealth(Data.MaxHealth);
+        SetHealth(Data.MaxHealth[Phase]);
     }
 
     public void SetHealth(float newHealth)
@@ -67,9 +69,9 @@ public class Entity : MonoBehaviour
             OnTakeDamage?.Invoke(health);
             return true;
         }
-        else if (health >= Data.MaxHealth)
+        else if (health >= Data.MaxHealth[Phase])
         {
-            health = Data.MaxHealth;
+            health = Data.MaxHealth[Phase];
             OnTakeDamage?.Invoke(health);
             return false;
         }
@@ -88,7 +90,7 @@ public class Entity : MonoBehaviour
     IEnumerator InvincibilityCoroutine()
     {
         canTakeDamage = false;
-        yield return new WaitForSeconds(Data.InvicibilityTimeStamp);
+        yield return new WaitForSeconds(Data.InvicibilityTimeStamp[Phase]);
         canTakeDamage = true;
     }
 }

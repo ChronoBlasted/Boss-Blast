@@ -21,7 +21,7 @@ public class AttackSystem : MonoBehaviour
             entityDefender.TakeDamage(currentWeapon.Damage);
 
             Vector2 directionKnockback = entityDefender.transform.position - transform.position;
-            Vector2 forceKnockback = directionKnockback.normalized * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier;
+            Vector2 forceKnockback = directionKnockback.normalized * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier[0];
 
             if (forceKnockback != Vector2.zero) entityDefender.rb.DOMove((Vector2)entityDefender.transform.position + forceKnockback, .2f);
         }

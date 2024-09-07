@@ -39,7 +39,7 @@ public class BasicEnemyWalkState : State<BasicEnemy>
         else
         {
             Vector2 direction = (_owner.entityToChase.transform.position - _owner.transform.position).normalized;
-            _owner.SetVelocity(direction * _owner.Data.Speed);
+            _owner.SetVelocity(direction * _owner.Data.Speed[_owner.Phase]);
         }
     }
 }

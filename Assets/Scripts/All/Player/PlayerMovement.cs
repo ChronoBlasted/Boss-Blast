@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDashing)
         {
-            rb.velocity = new Vector2(movementInput.x * Data.Speed, movementInput.y * Data.Speed);
+            rb.velocity = new Vector2(movementInput.x * Data.Speed[0], movementInput.y * Data.Speed[0]);
         }
     }
 
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         isDashing = true;
 
-        rb.velocity = new Vector2(movementInput.x * Data.DashSpeed, movementInput.y * Data.DashSpeed);
+        rb.velocity = new Vector2(movementInput.x * Data.DashSpeed[0], movementInput.y * Data.DashSpeed[0]);
 
         await Task.Delay(100);
 

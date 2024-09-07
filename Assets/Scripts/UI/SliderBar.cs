@@ -29,6 +29,11 @@ public class SliderBar : MonoBehaviour
         slider.value = newValue;
     }
 
+    public void SetMaxValue(float newValue)
+    {
+        slider.maxValue = newValue;
+    }
+
     public void SetValueSmooth(float newValue, float duration = 0.2f, Ease ease = Ease.OutSine)
     {
         if (_fillTween != null)

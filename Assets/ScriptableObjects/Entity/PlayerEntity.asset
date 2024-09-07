@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: PlayerEntity
   m_EditorClassIdentifier: 
   ColorEntity: {r: 0.5686275, g: 0.47450984, b: 1, a: 1}
-  MaxHealth: 100
-  HealthPerSecond: 0.1
-  KnockbackMultiplier: 1
-  InvicibilityTimeStamp: 0.5
-  Speed: 5
-  DashSpeed: 20
+  MaxHealth:
+  - 100
+  HealthPerSecond:
+  - 0.1
+  KnockbackMultiplier:
+  - 1
+  InvicibilityTimeStamp:
+  - 0.5
+  Speed:
+  - 5
+  DashSpeed:
+  - 20
