@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameView : View
 {
     [SerializeField] SliderBar bossHealth, playerHealth;
+    [SerializeField] TMP_Text phaseTxt, phaseFadeTxt;
 
     public override void Init()
     {
@@ -25,6 +27,17 @@ public class GameView : View
     public override void CloseView()
     {
         base.CloseView();
+    }
+
+    public void UpdatePhase(int newPhase)
+    {
+        phaseTxt.text = "PHASE " + newPhase;
+        phaseFadeTxt.text = "PHASE " + newPhase;
+    }
+
+    public void UpdateBossHealth(float newHealth, float duration = .2f)
+    {
+        bossHealth.SetValueSmooth(newHealth, duration);
     }
 
     public void UpdateBossHealth(float newHealth)

@@ -9,8 +9,7 @@ public class BasicEnemyIdleState : State<BasicEnemy>
     public override void Enter()
     {
         _owner.PlayAnimation(BasicEnemy.BasicEnemyAnimationName.Idle);
-        randomTimeBeforeWalk = Time.time + Random.Range(1, 5);
-
+        randomTimeBeforeWalk = Time.time + Random.Range(0, 1);
     }
 
     public override void Exit()

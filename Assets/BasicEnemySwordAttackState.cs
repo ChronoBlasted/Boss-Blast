@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemySwordAttack : State<BasicEnemy>
+public class BasicEnemySwordAttackState : State<BasicEnemy>
 {
-    float attackDuration = 1f;
+    float attackDuration;
     float distanceToAttack = 1f;
     float attackTimer;
+
+    BasicEnemy.BasicEnemyAnimationName animationName = BasicEnemy.BasicEnemyAnimationName.SwordAttack;
 
     public override void Enter()
     {
         Attack();
+        attackDuration = _owner.GetAnimDuration(animationName);
     }
 
     public override void Update()
@@ -37,7 +40,7 @@ public class BasicEnemySwordAttack : State<BasicEnemy>
 
         _owner.attackSystem.attackTrigger.Enemies.Clear();
 
-        _owner.PlayAnimation(BasicEnemy.BasicEnemyAnimationName.SwordAttack);
+        _owner.PlayAnimation(animationName);
         attackTimer = 0f;
     }
 

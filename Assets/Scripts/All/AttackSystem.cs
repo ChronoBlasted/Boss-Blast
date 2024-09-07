@@ -16,12 +16,15 @@ public class AttackSystem : MonoBehaviour
 
     public virtual void Attack(Entity entityDefender)
     {
-        entityDefender.TakeDamage(currentWeapon.Damage);
+        if (entityDefender.CanTakeDamage)
+        {
+            entityDefender.TakeDamage(currentWeapon.Damage);
 
-        Vector2 directionKnockback = entityDefender.transform.position - transform.position;
-        Vector2 forceKnockback = directionKnockback.normalized * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier;
+            Vector2 directionKnockback = entityDefender.transform.position - transform.position;
+            Vector2 forceKnockback = directionKnockback.normalized * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier;
 
-        if (forceKnockback != Vector2.zero) entityDefender.rb.DOMove((Vector2)entityDefender.transform.position + forceKnockback, .2f);
+            if (forceKnockback != Vector2.zero) entityDefender.rb.DOMove((Vector2)entityDefender.transform.position + forceKnockback, .2f);
+        }
     }
 
     public virtual void EquipWeapon(WeaponData newWeapon)

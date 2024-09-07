@@ -40,10 +40,15 @@ public class SliderBar : MonoBehaviour
         _fillTween = slider.DOValue(newValue, duration).SetEase(ease);
     }
 
+    public float GetValue()
+    {
+        return slider.value;
+    }
+
 
     #region TextUpdateOnValueChange
     public void UpdateTextWithSlash() => sliderValue.text = Mathf.RoundToInt(slider.value) + "/" + slider.maxValue; // Pour l'inspecteur onchange du slider
-    public void UpdateTextValue() => sliderValue.text = Mathf.RoundToInt(slider.value).ToString(); // Pour l'inspecteur onchange du slider
+    public void UpdateTextValue() => sliderValue.text = UIManager.GetFormattedInt(Mathf.RoundToInt(slider.value)).ToString(); // Pour l'inspecteur onchange du slider
     public void UpdateTextValueWithSuffixe(string suffixe) => sliderValue.text = Mathf.RoundToInt(slider.value) + suffixe; // Pour l'inspecteur onchange du slider
     public void UpdateTextValueWithPrefix(string prefix) => sliderValue.text = prefix + Mathf.RoundToInt(slider.value); // Pour l'inspecteur onchange du slider
     public void UpdateText(string prefix = "", string suffixe = "", bool slash = false) => sliderValue.text = prefix + Mathf.RoundToInt(slider.value) + (slash ? "/" + slider.maxValue : "") + suffixe; // Cas precis

@@ -16,16 +16,39 @@ public class Entity : MonoBehaviour
 
     public Action<float> OnTakeDamage;
 
+    Coroutine invincibilityCor;
+
+    public bool CanTakeDamage { get => canTakeDamage; }
+
     private void Awake()
     {
-        health = Data.MaxHealth;
+        SetHealth(Data.MaxHealth);
+    }
+
+    public void SetHealth(float newHealth)
+    {
+        health = newHealth;
+    }
+
+    public void ForceInvincibility(bool isInvincible)
+    {
+        if (invincibilityCor != null)
+        {
+            StopCoroutine(invincibilityCor);
+            invincibilityCor = null;
+        }
+
+        canTakeDamage = !isInvincible;
     }
 
     public virtual bool TakeDamage(float damageTaken)
     {
-        if (canTakeDamage == false) return false;
-
-        StartCoroutine(InvicibilityCoroutine());
+        if (invincibilityCor != null)
+        {
+            StopCoroutine(invincibilityCor);
+            invincibilityCor = null;
+        }
+        invincibilityCor = StartCoroutine(InvincibilityCoroutine());
 
         health -= damageTaken;
 
@@ -62,7 +85,7 @@ public class Entity : MonoBehaviour
 
     }
 
-    IEnumerator InvicibilityCoroutine()
+    IEnumerator InvincibilityCoroutine()
     {
         canTakeDamage = false;
         yield return new WaitForSeconds(Data.InvicibilityTimeStamp);

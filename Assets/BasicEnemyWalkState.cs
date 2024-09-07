@@ -34,7 +34,7 @@ public class BasicEnemyWalkState : State<BasicEnemy>
 
         if (distanceToPlayer <= distanceToAttack)
         {
-            _stateMachine.SetState<BasicEnemySwordAttack>();
+            _stateMachine.SetState<BasicEnemySwordAttackState>();
         }
         else
         {

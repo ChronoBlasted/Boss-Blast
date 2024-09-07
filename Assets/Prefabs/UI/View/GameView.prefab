@@ -2460,6 +2460,8 @@ MonoBehaviour:
   _canvasGroup: {fileID: 5039675561456550145}
   bossHealth: {fileID: 6297537263670928146}
   playerHealth: {fileID: 7937057806769718164}
+  phaseTxt: {fileID: 1930351769805073602}
+  phaseFadeTxt: {fileID: 1354168425732198294}
 --- !u!225 &5039675561456550145 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 6090704076704045913, guid: 6b07aa957c69f644c93feb09406b40c2, type: 3}

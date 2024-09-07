@@ -22,6 +22,7 @@ public class TimeManager : MonoSingleton<TimeManager>
             StopCoroutine(_lagCoroutine);
             _lagCoroutine = null;
         }
+
         _lagCoroutine = StartCoroutine(LagCoroutine(intensity, timeBeforeLerp));
     }
 
