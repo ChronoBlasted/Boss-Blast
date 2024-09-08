@@ -36,15 +36,16 @@ public class PlayerAttack : AttackSystem
         animator.SetTrigger("SwordAttack");
     }
 
-    public override void Attack(Entity entityDefender)
+    public override bool Attack(Entity entityDefender)
     {
         if (entityDefender.CanTakeDamage)
         {
-            TimeManager.Instance.DoLagTime(.2f, .05f);
-
             CameraManager.Instance.ShakeCamera(2, .075f);
 
-            base.Attack(entityDefender);
+            if (base.Attack(entityDefender)) TimeManager.Instance.DoLagTime(.1f, .1f);
+            else TimeManager.Instance.DoLagTime(.2f, .05f);
         }
+
+        return false;
     }
 }

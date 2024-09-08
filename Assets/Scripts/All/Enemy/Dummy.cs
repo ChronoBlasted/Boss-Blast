@@ -9,8 +9,8 @@ public class Dummy : Entity
         base.Die();
     }
 
-    public override bool TakeDamage(float damageTaken)
+    public override bool TakeDamage(float damageTaken, bool isCrit)
     {
-        return base.TakeDamage(damageTaken);
+        return base.TakeDamage(damageTaken, isCrit);
     }
 }

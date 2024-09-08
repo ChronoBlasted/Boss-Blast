@@ -7,6 +7,8 @@ public class Entity : MonoBehaviour
 {
     public EntityData Data;
     public ParticleSystem HitFX;
+    public GameObject HitFxCross1;
+    public GameObject HitFxCross2;
     public Rigidbody2D rb;
 
     public int Phase = 0;
@@ -44,7 +46,7 @@ public class Entity : MonoBehaviour
         canTakeDamage = !isInvincible;
     }
 
-    public virtual bool TakeDamage(float damageTaken)
+    public virtual bool TakeDamage(float damageTaken, bool isCrit)
     {
         if (invincibilityCor != null)
         {
@@ -54,6 +56,17 @@ public class Entity : MonoBehaviour
         invincibilityCor = StartCoroutine(InvincibilityCoroutine());
 
         health -= damageTaken;
+
+        if (isCrit)
+        {
+            HitFxCross1.SetActive(true);
+            HitFxCross2.SetActive(true);
+        }
+        else
+        {
+            HitFxCross1.SetActive(false);
+            HitFxCross2.SetActive(false);
+        }
 
         HitFX.Play();
 

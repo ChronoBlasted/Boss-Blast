@@ -14732,9 +14732,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 276f51e6d5c79b2489fdc6c6a69938fa, type: 2}
   HitFX: {fileID: 6294833280002170868}
+  HitFxCross1: {fileID: 4179011731615470707}
+  HitFxCross2: {fileID: 158480892240803176}
   rb: {fileID: 5811138415348334695}
   Phase: 0
-  Prestige: 1
+  Prestige: 0
   entityToChase: {fileID: 0}
   attackSystem: {fileID: 1616579669770881900}
   animator: {fileID: 5537099320542477324}

@@ -14,17 +14,26 @@ public class AttackSystem : MonoBehaviour
     float lastAttack;
 
 
-    public virtual void Attack(Entity entityDefender)
+    public virtual bool Attack(Entity entityDefender)
     {
         if (entityDefender.CanTakeDamage)
         {
-            entityDefender.TakeDamage(currentWeapon.Damage);
+            var damageToApply = currentWeapon.Damage;
+            var critRandom = Random.Range(0, 100);
+            var isCrit = critRandom <= currentWeapon.CritChance;
+            if (isCrit) damageToApply *= currentWeapon.CritDamage;
+
+            entityDefender.TakeDamage(damageToApply, isCrit);
 
             Vector2 directionKnockback = entityDefender.transform.position - transform.position;
             Vector2 forceKnockback = directionKnockback.normalized * currentWeapon.Knockback * entityDefender.Data.KnockbackMultiplier[0];
 
             if (forceKnockback != Vector2.zero) entityDefender.rb.DOMove((Vector2)entityDefender.transform.position + forceKnockback, .2f);
+
+            return isCrit;
         }
+
+        return false;
     }
 
     public virtual void EquipWeapon(WeaponData newWeapon)
