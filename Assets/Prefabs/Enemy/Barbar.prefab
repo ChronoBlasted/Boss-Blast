@@ -14703,8 +14703,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4
-  m_LinearDrag: 5
+  m_Mass: 10
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 03301e8e8906d2941bd4c0e90755c817, type: 2}
@@ -14732,9 +14732,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 276f51e6d5c79b2489fdc6c6a69938fa, type: 2}
   HitFX: {fileID: 6294833280002170868}
+  rb: {fileID: 5811138415348334695}
+  Phase: 0
+  Prestige: 1
   entityToChase: {fileID: 0}
   attackSystem: {fileID: 1616579669770881900}
-  rb: {fileID: 5811138415348334695}
   animator: {fileID: 5537099320542477324}
 --- !u!114 &1616579669770881900
 MonoBehaviour:

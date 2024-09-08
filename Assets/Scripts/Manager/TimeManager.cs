@@ -23,8 +23,6 @@ public class TimeManager : MonoSingleton<TimeManager>
             _lagCoroutine = null;
         }
 
-        Debug.Log(timeBeforeLerp);
-
         _lagCoroutine = StartCoroutine(LagCoroutine(intensity, timeBeforeLerp));
     }
 

@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
     public Rigidbody2D rb;
 
     public int Phase = 0;
+    public int Prestige = 0;
 
     GameObject _floatingTextGO;
 
@@ -24,7 +25,7 @@ public class Entity : MonoBehaviour
 
     private void Awake()
     {
-        SetHealth(Data.MaxHealth[Phase]);
+        SetHealth(Data.MaxHealth[Phase] + Data.MaxHealthPerPrestige[Prestige]);
     }
 
     public void SetHealth(float newHealth)
@@ -62,6 +63,8 @@ public class Entity : MonoBehaviour
 
         _floatingText.InitSmall(damageTaken, Data.ColorEntity);
 
+        float MaxHealth = Data.MaxHealth[Phase] + Data.MaxHealthPerPrestige[Prestige];
+
         if (health <= 0)
         {
             health = 0;
@@ -69,7 +72,7 @@ public class Entity : MonoBehaviour
             OnTakeDamage?.Invoke(health);
             return true;
         }
-        else if (health >= Data.MaxHealth[Phase])
+        else if (health >= MaxHealth)
         {
             health = Data.MaxHealth[Phase];
             OnTakeDamage?.Invoke(health);

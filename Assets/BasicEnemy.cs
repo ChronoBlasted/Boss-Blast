@@ -29,7 +29,6 @@ public class BasicEnemy : Entity
         _stateMachine = new FiniteStateMachine<BasicEnemy>(this);
 
         _stateMachine.AddState(new BasicEnemyStartBattleState());
-        _stateMachine.AddState(new BasicEnemyIdleState());
         _stateMachine.AddState(new BasicEnemyWalkState());
         _stateMachine.AddState(new BasicEnemySwordAttackState());
         _stateMachine.AddState(new BasicEnemyReviveState());

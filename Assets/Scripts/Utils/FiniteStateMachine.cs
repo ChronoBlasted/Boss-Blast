@@ -25,7 +25,6 @@ public class FiniteStateMachine<T>
     {
         if (_currentState != null)
         {
-            Debug.Log("EXIT : " + _currentState.GetType());
             _currentState.Exit();
         }
 

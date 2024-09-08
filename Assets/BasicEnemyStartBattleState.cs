@@ -13,8 +13,6 @@ public class BasicEnemyStartBattleState : State<BasicEnemy>
     {
         _owner.PlayAnimation(animationName);
         timeBeforeNextState = _owner.GetAnimDuration(animationName);
-
-        UIManager.Instance.GameView.UpdatePhase(_owner.Phase); // For first turn
     }
 
     public override void Exit()
@@ -27,7 +25,7 @@ public class BasicEnemyStartBattleState : State<BasicEnemy>
 
         if (timer >= timeBeforeNextState)
         {
-            _stateMachine.SetState<BasicEnemyIdleState>();
+            _stateMachine.SetState<BasicEnemyWalkState>();
         }
     }
 }

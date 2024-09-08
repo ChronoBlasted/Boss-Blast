@@ -6,35 +6,46 @@ using UnityEngine.UI;
 public class SliderBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
+    [SerializeField] Slider sliderWhite;
     [SerializeField] TMP_Text sliderValue;
 
     Tweener _fillTween;
+    Tweener _fillWhiteTween;
 
     public Tweener FillTween { get => _fillTween; }
+    public Tweener FillWhiteTween { get => _fillWhiteTween; }
 
     public void Init(float value, float maxValue)
     {
         slider.maxValue = maxValue;
         slider.value = value;
+
+        sliderWhite.value = value;
+        sliderWhite.maxValue = maxValue;
     }
 
     public void Init(float value)
     {
         slider.maxValue = value;
         slider.value = value;
+
+        sliderWhite.maxValue = value;
+        sliderWhite.value = value;
     }
 
     public void SetValue(float newValue)
     {
         slider.value = newValue;
+        sliderWhite.value = newValue;
     }
 
     public void SetMaxValue(float newValue)
     {
         slider.maxValue = newValue;
+        sliderWhite.maxValue = newValue;
     }
 
-    public void SetValueSmooth(float newValue, float duration = 0.2f, Ease ease = Ease.OutSine)
+    public void SetValueSmooth(float newValue, float duration = 0.2f, Ease ease = Ease.OutCirc)
     {
         if (_fillTween != null)
         {
@@ -42,7 +53,15 @@ public class SliderBar : MonoBehaviour
             _fillTween = null;
         }
 
+        if (_fillWhiteTween != null)
+        {
+            _fillWhiteTween.Kill();
+            _fillWhiteTween = null;
+        }
+
         _fillTween = slider.DOValue(newValue, duration).SetEase(ease);
+
+        _fillWhiteTween = sliderWhite.DOValue(newValue, duration).SetEase(Ease.Linear);
     }
 
     public float GetValue()

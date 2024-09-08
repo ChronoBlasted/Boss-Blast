@@ -38,8 +38,10 @@ public class BasicEnemyWalkState : State<BasicEnemy>
         }
         else
         {
+            float speedBonus = _owner.Data.Speed[_owner.Phase] + _owner.Data.SpeedPerPrestige[_owner.Prestige];
+
             Vector2 direction = (_owner.entityToChase.transform.position - _owner.transform.position).normalized;
-            _owner.SetVelocity(direction * _owner.Data.Speed[_owner.Phase]);
+            _owner.SetVelocity(direction * speedBonus);
         }
     }
 }
