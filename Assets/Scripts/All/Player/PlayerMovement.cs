@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 directionToLookAt;
 
     bool isDashing = false;
+    Coroutine dashCor;
 
     void Update()
     {
@@ -41,15 +43,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    async void Dash(InputAction.CallbackContext context)
+    void Dash(InputAction.CallbackContext context)
     {
-        if (isDashing || movementInput == Vector2.zero) return;
+        if (isDashing || movementInput == Vector2.zero || isDashing) return;
 
+        dashCor = StartCoroutine(DashCoroutine());
+    }
+
+    IEnumerator DashCoroutine()
+    {
         isDashing = true;
 
         rb.velocity = new Vector2(movementInput.x * Data.DashSpeed[0], movementInput.y * Data.DashSpeed[0]);
 
-        await Task.Delay(100);
+        yield return new WaitForSeconds(.1f);
 
         isDashing = false;
     }
